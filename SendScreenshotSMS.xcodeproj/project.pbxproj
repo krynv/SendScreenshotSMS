@@ -22,6 +22,7 @@
 		54A0A7F6202B87C5006F8386 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54A0A7F9202B87C5006F8386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54A0A7FB202B87C5006F8386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54A0A802202B8871006F8386 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 			children = (
 				54A0A7EE202B87C5006F8386 /* SendScreenshotSMS */,
 				54A0A7ED202B87C5006F8386 /* Products */,
+				54A0A801202B8871006F8386 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +64,14 @@
 				54A0A7FB202B87C5006F8386 /* Info.plist */,
 			);
 			path = SendScreenshotSMS;
+			sourceTree = "<group>";
+		};
+		54A0A801202B8871006F8386 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54A0A802202B8871006F8386 /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

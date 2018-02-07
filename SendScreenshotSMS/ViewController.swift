@@ -7,19 +7,41 @@
 //
 
 import UIKit
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func smsButtonPressed(_ sender: UIButton) {
+        
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if MFMessageComposeViewController.canSendText() && MFMessageComposeViewController.canSendAttachments() {
+
+            let smsController = MFMessageComposeViewController()
+            
+            smsController.body = "Can you please tell me what colour this is?"
+            let screenshotImageData: Data = UIImagePNGRepresentation(screenshotImage!)!
+            smsController.addAttachmentData(screenshotImageData, typeIdentifier: "data", filename: "screenshotImage.png")
+            smsController.messageComposeDelegate = self
+            self.present(smsController, animated: true, completion: nil)
+            
+            
+        } else {
+            print("User cannot send texts or attachments")
+        }
     }
-
-
+    
+    
 }
 
